@@ -41,7 +41,7 @@ exp.mat <- d.tpm %>% tibble::rownames_to_column("gene_id") %>%
 ## Deconvolution with quantiseq using immunedeconv R package
 # res_quantiseq = deconvolute(exp.mat, "quantiseq", tumor = TRUE)
 # saveRDS(res_quantiseq, "SCAN-ovarian_res_quantiseq.rds")
-res_quantiseq <- readRDS(file = "SCAN-ovarian_res_quantiseq.rds.rds")
+res_quantiseq <- readRDS(file = "SCAN-ovarian_res_quantiseq.rds")
 colnames(res_quantiseq) <- sub("Patient_OV_","P",colnames(res_quantiseq))
 
 res_quantiseq$cell_type <- factor(res_quantiseq$cell_type, levels = res_quantiseq$cell_type)
