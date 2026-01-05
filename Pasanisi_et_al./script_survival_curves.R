@@ -1,5 +1,6 @@
-# "R version 4.1.2 (2021-11-01)"
-# Code R pour les courbes de survie
+# Survival curve script
+# Author: Sophie Vacher
+# R version 4.1.2 (2021-11-01)
 
 library(survival)
 library(survminer)
@@ -7,21 +8,21 @@ library(survminer)
 # Define path on the cluster
 countsdatapath <-"path"
 
-# Charger les donnees
+# Load data
 data <- read.table(file.path(countsdatapath,"PourFig.csv"),sep=",", header = TRUE)
 head(data)
 dim(data)
 unique(data$Statut_HRD)
 
-# Creer un objet survfit
+# Create survfit object
 surv_obj <- Surv(time = data$DEL_OS, event = data$VITAL_STATUS)
 surv_obj.2 <- Surv(time = data$DEL_DFS, event = data$DFS)
 
-# Ajuster la courbe de survie par groupe de risque
+# Adjust the survival curve by risk group
 fit <- survfit(surv_obj ~ Statut_HRD, data = data)
 fit.2 <- survfit(surv_obj.2 ~ Statut_HRD, data = data)
 
-# Courbe de survie avec profil de risque
+# Survival curve with risk profile
 # OS
 ggsurvplot(
   fit, 
