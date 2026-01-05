@@ -3,7 +3,7 @@
 
 require(tidyverse)
 require(ggplot2)
-library(ComplexHeatmap)
+require(ComplexHeatmap)
 
 ################################################################################
 ### Add clinical data
