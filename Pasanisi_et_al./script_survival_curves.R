@@ -1,5 +1,4 @@
 # Survival curve script
-# Author: Sophie Vacher
 # R version 4.1.2 (2021-11-01)
 
 library(survival)
